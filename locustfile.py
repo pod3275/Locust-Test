@@ -21,6 +21,8 @@ def generate_state():
     state = []
     for i in range(200):
         state.append(random.random())
+        
+    return state
     
 
 class QuickstartUser(HttpUser):
