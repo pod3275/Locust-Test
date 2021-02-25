@@ -60,6 +60,5 @@ class QuickstartUser(HttpUser):
                             {"name":"output_h_state"}
                         ]
                     }
-        response = self.client.post(REST, input_json)
+        response = self.client.post(REST, json=input_json)
         print("Response status code:", response.status_code)
-        print("Response text:", response.text)
