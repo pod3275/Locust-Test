@@ -22,7 +22,7 @@ def generate_state():
     for i in range(200):
         state.append(random.random())
         
-    return state
+    return [state]
     
 
 class QuickstartUser(HttpUser):
@@ -30,8 +30,8 @@ class QuickstartUser(HttpUser):
 
     @task
     def on_start(self):
-        input_length = random.randint(1,10)
         REST = "/v2/models/SE-DKT+/versions/1/infer"
+        input_length = random.randint(1,10)
         input_json = {
                         "id": "asdfasdf",
                         "inputs": [
