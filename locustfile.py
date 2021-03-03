@@ -6,8 +6,8 @@ Created on Sat Feb 20 15:29:10 2021
 """
 
 import random
-from locust import HttpUser, task, between
-from locust.contrib.fasthttp import FastHttpLocust
+from locust import task, between
+from locust.contrib.fasthttp import FastHttpUser
 
 def generate_input(input_length):
     inputs = []
@@ -26,8 +26,8 @@ def generate_state():
     return [state]
     
 
-class QuickstartUser(FastHttpLocust):
-    wait_time = between(2, 3)
+class QuickstartUser(FastHttpUser):
+    wait_time = between(1, 3)
 
     @task
     def on_start(self):
