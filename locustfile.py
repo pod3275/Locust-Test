@@ -63,4 +63,3 @@ class QuickstartUser(FastHttpLocust):
                     }
         response = self.client.post(REST, json=input_json)
         print("Response status code:", response.status_code)
-        print("Response text:", response.text)
