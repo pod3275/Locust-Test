@@ -7,6 +7,7 @@ Created on Sat Feb 20 15:29:10 2021
 
 import random
 from locust import HttpUser, task, between
+from locust.contrib.fasthttp import FastHttpLocust
 
 def generate_input(input_length):
     inputs = []
@@ -25,7 +26,7 @@ def generate_state():
     return [state]
     
 
-class QuickstartUser(HttpUser):
+class QuickstartUser(FastHttpLocust):
     wait_time = between(2, 3)
 
     @task
@@ -60,6 +61,6 @@ class QuickstartUser(HttpUser):
                             {"name":"output_h_state"}
                         ]
                     }
-        response = self.client.post(REST, input_json)
+        response = self.client.post(REST, json=input_json)
         print("Response status code:", response.status_code)
         print("Response text:", response.text)

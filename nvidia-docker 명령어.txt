@@ -1,0 +1,2 @@
+PORT=8000
+nvidia-docker run --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --rm -p$PORT:8000 -v `pwd`/model_repository:/models nvcr.io/nvidia/tritonserver:20.11-py3 tritonserver --model-repository=/models
